@@ -1,0 +1,11 @@
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\bin\Debug\TransactionApp.exe.config
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\bin\Debug\TransactionApp.exe
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\bin\Debug\TransactionApp.pdb
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\bin\Debug\BankClasses.dll
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\bin\Debug\BankClasses.pdb
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\obj\Debug\TransactionApp.csprojResolveAssemblyReference.cache
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\obj\Debug\TransactionApp.frmMain.resources
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\obj\Debug\TransactionApp.Properties.Resources.resources
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\obj\Debug\TransactionApp.csproj.GenerateResource.Cache
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\obj\Debug\TransactionApp.exe
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\TransactionApp\obj\Debug\TransactionApp.pdb

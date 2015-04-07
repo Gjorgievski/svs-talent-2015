@@ -1,0 +1,5 @@
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\BankClasses\bin\Debug\BankClasses.dll
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\BankClasses\bin\Debug\BankClasses.pdb
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\BankClasses\obj\Debug\BankClasses.csprojResolveAssemblyReference.cache
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\BankClasses\obj\Debug\BankClasses.dll
+C:\Users\Ace\Documents\Visual Studio 2013\Projects\Nextsense\BankClasses\BankClasses\obj\Debug\BankClasses.pdb
