@@ -1,4 +1,5 @@
 ﻿using BankClasses.Accounts;
+using BankClasses.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,12 @@ namespace BankClasses.Helpers
             return sAccountId;
         }
 
-
+        /// <summary>
+        /// Method for generating account numbers
+        /// </summary>
+        /// <param name="accountType">type of account</param>
+        /// <param name="accountId">account id</param>
+        /// <returns>account number</returns>
         public static string GenerateAccountNumber(Type accountType,long accountId)
         {
             string result="";
@@ -57,7 +63,24 @@ namespace BankClasses.Helpers
             result += accountId;
 
             return result;
-        } 
+        }
+
+
+        /// <summary>
+        /// Generic method for creating acconunt number
+        /// </summary>
+        /// <typeparam name="T">account type</typeparam>
+        /// <param name="accountId">account id</param>
+        /// <returns>account number</returns>
+        public static string GenerateAccountNumber<T>(long accountId) where T : IAccount
+        {
+
+            string result = GenerateAccountNumber(typeof(T), accountId);
+
+
+            return result;
+
+        }
 
     }
 }

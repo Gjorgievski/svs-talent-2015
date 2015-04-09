@@ -46,7 +46,7 @@ namespace BankClasses.Accounts
         {
             string result = "";
 
-            result=AccountHelper.GenerateAccountNumber(typeof(TransactionAccount),Id);
+            result = AccountHelper.GenerateAccountNumber<TransactionAccount>(Id);
 
             return result;
         }

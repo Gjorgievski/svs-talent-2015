@@ -94,7 +94,7 @@ namespace BankClasses.Accounts
         {
             string result = "";
 
-            result = AccountHelper.GenerateAccountNumber(typeof(DepositAccount), Id);
+            result = AccountHelper.GenerateAccountNumber<DepositAccount>(Id);
 
             return result;
         }

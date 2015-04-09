@@ -103,6 +103,34 @@
             this.label42 = new System.Windows.Forms.Label();
             this.btnMakeTransaction = new System.Windows.Forms.Button();
             this.lblTransactionStatus = new System.Windows.Forms.Label();
+            this.btnMakeGroupTransaction = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.lbl_LoanEndDate = new System.Windows.Forms.Label();
+            this.lbl_LoanStartDate = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lbl_LoanInterestRate = new System.Windows.Forms.Label();
+            this.lbl_LoanTimePeriod = new System.Windows.Forms.Label();
+            this.lbl_LoanBalance = new System.Windows.Forms.Label();
+            this.lbl_LoanCurrency = new System.Windows.Forms.Label();
+            this.lbl_LoanNumber = new System.Windows.Forms.Label();
+            this.lbl_LoanId = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.lblNumberTransactions = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.lbl_LogTransactionStatus = new System.Windows.Forms.Label();
+            this.lbl_LogCurrency = new System.Windows.Forms.Label();
+            this.lbl_LogAmount = new System.Windows.Forms.Label();
+            this.lbl_LogTransactionType = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -110,13 +138,15 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCreateTransactionAccount
             // 
-            this.btnCreateTransactionAccount.Location = new System.Drawing.Point(12, 573);
+            this.btnCreateTransactionAccount.Location = new System.Drawing.Point(12, 596);
             this.btnCreateTransactionAccount.Name = "btnCreateTransactionAccount";
-            this.btnCreateTransactionAccount.Size = new System.Drawing.Size(175, 23);
+            this.btnCreateTransactionAccount.Size = new System.Drawing.Size(155, 23);
             this.btnCreateTransactionAccount.TabIndex = 0;
             this.btnCreateTransactionAccount.Text = " Create Transaction Account ";
             this.btnCreateTransactionAccount.UseVisualStyleBackColor = true;
@@ -124,9 +154,9 @@
             // 
             // btnCreateDepositAccount
             // 
-            this.btnCreateDepositAccount.Location = new System.Drawing.Point(193, 573);
+            this.btnCreateDepositAccount.Location = new System.Drawing.Point(173, 596);
             this.btnCreateDepositAccount.Name = "btnCreateDepositAccount";
-            this.btnCreateDepositAccount.Size = new System.Drawing.Size(175, 23);
+            this.btnCreateDepositAccount.Size = new System.Drawing.Size(155, 23);
             this.btnCreateDepositAccount.TabIndex = 1;
             this.btnCreateDepositAccount.Text = "Create Deposit Account";
             this.btnCreateDepositAccount.UseVisualStyleBackColor = true;
@@ -225,6 +255,7 @@
             this.txtUnitInterestRate.Name = "txtUnitInterestRate";
             this.txtUnitInterestRate.Size = new System.Drawing.Size(100, 20);
             this.txtUnitInterestRate.TabIndex = 7;
+            this.txtUnitInterestRate.Text = "1";
             // 
             // label6
             // 
@@ -241,6 +272,7 @@
             this.txtPercent.Name = "txtPercent";
             this.txtPercent.Size = new System.Drawing.Size(100, 20);
             this.txtPercent.TabIndex = 5;
+            this.txtPercent.Text = "15";
             // 
             // label5
             // 
@@ -266,6 +298,7 @@
             this.txtUnitPeriod.Name = "txtUnitPeriod";
             this.txtUnitPeriod.Size = new System.Drawing.Size(100, 20);
             this.txtUnitPeriod.TabIndex = 2;
+            this.txtUnitPeriod.Text = "2";
             // 
             // txtPeriod
             // 
@@ -274,6 +307,7 @@
             this.txtPeriod.Size = new System.Drawing.Size(100, 20);
             this.txtPeriod.TabIndex = 1;
             this.txtPeriod.Tag = "";
+            this.txtPeriod.Text = "1";
             // 
             // label3
             // 
@@ -531,7 +565,7 @@
             this.groupBox6.Controls.Add(this.label22);
             this.groupBox6.Location = new System.Drawing.Point(12, 337);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(335, 207);
+            this.groupBox6.Size = new System.Drawing.Size(225, 207);
             this.groupBox6.TabIndex = 12;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Transaction Account";
@@ -656,12 +690,12 @@
             this.groupBox7.Controls.Add(this.label40);
             this.groupBox7.Controls.Add(this.label41);
             this.groupBox7.Controls.Add(this.label42);
-            this.groupBox7.Location = new System.Drawing.Point(362, 337);
+            this.groupBox7.Location = new System.Drawing.Point(243, 337);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(335, 207);
+            this.groupBox7.Size = new System.Drawing.Size(224, 207);
             this.groupBox7.TabIndex = 13;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Deposit/Loan Account";
+            this.groupBox7.Text = "Deposit Account";
             // 
             // lbl_toEndDate
             // 
@@ -801,9 +835,9 @@
             // 
             // btnMakeTransaction
             // 
-            this.btnMakeTransaction.Location = new System.Drawing.Point(374, 573);
+            this.btnMakeTransaction.Location = new System.Drawing.Point(334, 596);
             this.btnMakeTransaction.Name = "btnMakeTransaction";
-            this.btnMakeTransaction.Size = new System.Drawing.Size(175, 23);
+            this.btnMakeTransaction.Size = new System.Drawing.Size(155, 23);
             this.btnMakeTransaction.TabIndex = 14;
             this.btnMakeTransaction.Text = "Make Transaction";
             this.btnMakeTransaction.UseVisualStyleBackColor = true;
@@ -815,15 +849,285 @@
             this.lblTransactionStatus.ForeColor = System.Drawing.Color.DarkRed;
             this.lblTransactionStatus.Location = new System.Drawing.Point(12, 547);
             this.lblTransactionStatus.Name = "lblTransactionStatus";
-            this.lblTransactionStatus.Size = new System.Drawing.Size(96, 13);
+            this.lblTransactionStatus.Size = new System.Drawing.Size(99, 13);
             this.lblTransactionStatus.TabIndex = 20;
-            this.lblTransactionStatus.Text = "Transaction Status";
+            this.lblTransactionStatus.Text = "Transaction Status:";
+            // 
+            // btnMakeGroupTransaction
+            // 
+            this.btnMakeGroupTransaction.Location = new System.Drawing.Point(495, 596);
+            this.btnMakeGroupTransaction.Name = "btnMakeGroupTransaction";
+            this.btnMakeGroupTransaction.Size = new System.Drawing.Size(155, 23);
+            this.btnMakeGroupTransaction.TabIndex = 21;
+            this.btnMakeGroupTransaction.Text = "Make Group Transaction";
+            this.btnMakeGroupTransaction.UseVisualStyleBackColor = true;
+            this.btnMakeGroupTransaction.Click += new System.EventHandler(this.btnMakeGroupTransaction_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.lbl_LoanEndDate);
+            this.groupBox8.Controls.Add(this.lbl_LoanStartDate);
+            this.groupBox8.Controls.Add(this.label27);
+            this.groupBox8.Controls.Add(this.label28);
+            this.groupBox8.Controls.Add(this.lbl_LoanInterestRate);
+            this.groupBox8.Controls.Add(this.lbl_LoanTimePeriod);
+            this.groupBox8.Controls.Add(this.lbl_LoanBalance);
+            this.groupBox8.Controls.Add(this.lbl_LoanCurrency);
+            this.groupBox8.Controls.Add(this.lbl_LoanNumber);
+            this.groupBox8.Controls.Add(this.lbl_LoanId);
+            this.groupBox8.Controls.Add(this.label35);
+            this.groupBox8.Controls.Add(this.label36);
+            this.groupBox8.Controls.Add(this.label45);
+            this.groupBox8.Controls.Add(this.label46);
+            this.groupBox8.Controls.Add(this.label47);
+            this.groupBox8.Controls.Add(this.label48);
+            this.groupBox8.Location = new System.Drawing.Point(475, 337);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(224, 207);
+            this.groupBox8.TabIndex = 36;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Loan Account";
+            // 
+            // lbl_LoanEndDate
+            // 
+            this.lbl_LoanEndDate.AutoSize = true;
+            this.lbl_LoanEndDate.Location = new System.Drawing.Point(67, 182);
+            this.lbl_LoanEndDate.Name = "lbl_LoanEndDate";
+            this.lbl_LoanEndDate.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanEndDate.TabIndex = 35;
+            // 
+            // lbl_LoanStartDate
+            // 
+            this.lbl_LoanStartDate.AutoSize = true;
+            this.lbl_LoanStartDate.Location = new System.Drawing.Point(71, 159);
+            this.lbl_LoanStartDate.Name = "lbl_LoanStartDate";
+            this.lbl_LoanStartDate.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanStartDate.TabIndex = 34;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 182);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(55, 13);
+            this.label27.TabIndex = 33;
+            this.label27.Text = "End Date:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 160);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(58, 13);
+            this.label28.TabIndex = 32;
+            this.label28.Text = "Start Date:";
+            // 
+            // lbl_LoanInterestRate
+            // 
+            this.lbl_LoanInterestRate.AutoSize = true;
+            this.lbl_LoanInterestRate.Location = new System.Drawing.Point(83, 135);
+            this.lbl_LoanInterestRate.Name = "lbl_LoanInterestRate";
+            this.lbl_LoanInterestRate.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanInterestRate.TabIndex = 31;
+            // 
+            // lbl_LoanTimePeriod
+            // 
+            this.lbl_LoanTimePeriod.AutoSize = true;
+            this.lbl_LoanTimePeriod.Location = new System.Drawing.Point(80, 113);
+            this.lbl_LoanTimePeriod.Name = "lbl_LoanTimePeriod";
+            this.lbl_LoanTimePeriod.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanTimePeriod.TabIndex = 30;
+            // 
+            // lbl_LoanBalance
+            // 
+            this.lbl_LoanBalance.AutoSize = true;
+            this.lbl_LoanBalance.Location = new System.Drawing.Point(62, 91);
+            this.lbl_LoanBalance.Name = "lbl_LoanBalance";
+            this.lbl_LoanBalance.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanBalance.TabIndex = 29;
+            // 
+            // lbl_LoanCurrency
+            // 
+            this.lbl_LoanCurrency.AutoSize = true;
+            this.lbl_LoanCurrency.Location = new System.Drawing.Point(65, 69);
+            this.lbl_LoanCurrency.Name = "lbl_LoanCurrency";
+            this.lbl_LoanCurrency.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanCurrency.TabIndex = 28;
+            // 
+            // lbl_LoanNumber
+            // 
+            this.lbl_LoanNumber.AutoSize = true;
+            this.lbl_LoanNumber.Location = new System.Drawing.Point(103, 47);
+            this.lbl_LoanNumber.Name = "lbl_LoanNumber";
+            this.lbl_LoanNumber.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanNumber.TabIndex = 27;
+            // 
+            // lbl_LoanId
+            // 
+            this.lbl_LoanId.AutoSize = true;
+            this.lbl_LoanId.Location = new System.Drawing.Point(76, 26);
+            this.lbl_LoanId.Name = "lbl_LoanId";
+            this.lbl_LoanId.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LoanId.TabIndex = 26;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(6, 136);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(71, 13);
+            this.label35.TabIndex = 25;
+            this.label35.Text = "Interest Rate:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 114);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(66, 13);
+            this.label36.TabIndex = 24;
+            this.label36.Text = "Time Period:";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(6, 92);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(49, 13);
+            this.label45.TabIndex = 23;
+            this.label45.Text = "Balance:";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 70);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(52, 13);
+            this.label46.TabIndex = 22;
+            this.label46.Text = "Currency:";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(6, 48);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(90, 13);
+            this.label47.TabIndex = 21;
+            this.label47.Text = "Account Number:";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(6, 26);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(64, 13);
+            this.label48.TabIndex = 20;
+            this.label48.Text = "Account ID:";
+            // 
+            // lblNumberTransactions
+            // 
+            this.lblNumberTransactions.AutoSize = true;
+            this.lblNumberTransactions.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNumberTransactions.Location = new System.Drawing.Point(12, 569);
+            this.lblNumberTransactions.Name = "lblNumberTransactions";
+            this.lblNumberTransactions.Size = new System.Drawing.Size(119, 13);
+            this.lblNumberTransactions.TabIndex = 37;
+            this.lblNumberTransactions.Text = "Number of transactions:";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.lbl_LogTransactionStatus);
+            this.groupBox9.Controls.Add(this.lbl_LogCurrency);
+            this.groupBox9.Controls.Add(this.lbl_LogAmount);
+            this.groupBox9.Controls.Add(this.lbl_LogTransactionType);
+            this.groupBox9.Controls.Add(this.label53);
+            this.groupBox9.Controls.Add(this.label54);
+            this.groupBox9.Controls.Add(this.label55);
+            this.groupBox9.Controls.Add(this.label56);
+            this.groupBox9.Location = new System.Drawing.Point(705, 337);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(224, 207);
+            this.groupBox9.TabIndex = 40;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Log Details";
+            // 
+            // lbl_LogTransactionStatus
+            // 
+            this.lbl_LogTransactionStatus.AutoSize = true;
+            this.lbl_LogTransactionStatus.Location = new System.Drawing.Point(109, 91);
+            this.lbl_LogTransactionStatus.Name = "lbl_LogTransactionStatus";
+            this.lbl_LogTransactionStatus.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LogTransactionStatus.TabIndex = 29;
+            // 
+            // lbl_LogCurrency
+            // 
+            this.lbl_LogCurrency.AutoSize = true;
+            this.lbl_LogCurrency.Location = new System.Drawing.Point(65, 69);
+            this.lbl_LogCurrency.Name = "lbl_LogCurrency";
+            this.lbl_LogCurrency.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LogCurrency.TabIndex = 28;
+            // 
+            // lbl_LogAmount
+            // 
+            this.lbl_LogAmount.AutoSize = true;
+            this.lbl_LogAmount.Location = new System.Drawing.Point(58, 47);
+            this.lbl_LogAmount.Name = "lbl_LogAmount";
+            this.lbl_LogAmount.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LogAmount.TabIndex = 27;
+            // 
+            // lbl_LogTransactionType
+            // 
+            this.lbl_LogTransactionType.AutoSize = true;
+            this.lbl_LogTransactionType.Location = new System.Drawing.Point(105, 26);
+            this.lbl_LogTransactionType.Name = "lbl_LogTransactionType";
+            this.lbl_LogTransactionType.Size = new System.Drawing.Size(0, 13);
+            this.lbl_LogTransactionType.TabIndex = 26;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(6, 92);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(97, 13);
+            this.label53.TabIndex = 23;
+            this.label53.Text = "Transaction status:";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(6, 70);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(52, 13);
+            this.label54.TabIndex = 22;
+            this.label54.Text = "Currency:";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(6, 48);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(46, 13);
+            this.label55.TabIndex = 21;
+            this.label55.Text = "Amount:";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(6, 26);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(93, 13);
+            this.label56.TabIndex = 20;
+            this.label56.Text = "Transaction Type:";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 608);
+            this.ClientSize = new System.Drawing.Size(937, 631);
+            this.Controls.Add(this.groupBox9);
+            this.Controls.Add(this.lblNumberTransactions);
+            this.Controls.Add(this.groupBox8);
+            this.Controls.Add(this.btnMakeGroupTransaction);
             this.Controls.Add(this.lblTransactionStatus);
             this.Controls.Add(this.btnMakeTransaction);
             this.Controls.Add(this.groupBox7);
@@ -851,6 +1155,10 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -933,6 +1241,34 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Button btnMakeTransaction;
         private System.Windows.Forms.Label lblTransactionStatus;
+        private System.Windows.Forms.Button btnMakeGroupTransaction;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label lbl_LoanEndDate;
+        private System.Windows.Forms.Label lbl_LoanStartDate;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lbl_LoanInterestRate;
+        private System.Windows.Forms.Label lbl_LoanTimePeriod;
+        private System.Windows.Forms.Label lbl_LoanBalance;
+        private System.Windows.Forms.Label lbl_LoanCurrency;
+        private System.Windows.Forms.Label lbl_LoanNumber;
+        private System.Windows.Forms.Label lbl_LoanId;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label lblNumberTransactions;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label lbl_LogTransactionStatus;
+        private System.Windows.Forms.Label lbl_LogCurrency;
+        private System.Windows.Forms.Label lbl_LogAmount;
+        private System.Windows.Forms.Label lbl_LogTransactionType;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
     }
 }
 

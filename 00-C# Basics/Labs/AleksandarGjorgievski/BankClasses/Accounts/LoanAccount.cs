@@ -106,7 +106,7 @@ namespace BankClasses.Accounts
         {
             string result = "";
 
-            result = AccountHelper.GenerateAccountNumber(typeof(LoanAccount), Id);
+            result = AccountHelper.GenerateAccountNumber<LoanAccount>(Id);
 
             return result;
         }

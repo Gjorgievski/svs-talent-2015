@@ -153,7 +153,6 @@ namespace TransactionApp
             }
         }
         #endregion
-
        
         #region Second Part / Transaction Processor
         private void btnMakeTransaction_Click(object sender, EventArgs e)
@@ -162,7 +161,7 @@ namespace TransactionApp
             //IDepositAccount depositAccount = createDepositAccount();
             ILoanAccount loanAccount = createLoanAccount();
 
-            ITransactionProcessor transactionProccesor = new TransactionProcessor();
+            ITransactionProcessor transactionProccesor = TransactionProcessor.GetTransactionProcessor();
 
             CurrencyAmount currencyAmount = new CurrencyAmount();
             currencyAmount.Amount = 20000;
@@ -181,8 +180,10 @@ namespace TransactionApp
             }
 
             //populateDepositAccount(depositAccount);
-            populateLoanAccount(loanAccount);
-            populateTransactionAccount(transactionAccount);
+            //populateLoanAccount(loanAccount);
+            //populateTransactionAccount(transactionAccount);
+            //lblNumberTransactions.Text ="Number of transactions: " + transactionProccesor.TransactionCount;
+            DisplayLastTransactionDetails();
         }
 
         private void populateTransactionAccount(ITransactionAccount account)
@@ -202,7 +203,7 @@ namespace TransactionApp
             lbl_toCurrency.Text = account.Currency;
             lbl_toBalance.Text = account.Balance.Amount.ToString() + " " + account.Balance.Currency.ToString();
             lbl_toPeriod.Text = account.Period.Period + " " + account.Period.Unit;
-            lbl_toInterest.Text = account.Interest.Percent + " " + account.Interest.Unit;
+            lbl_toInterest.Text = account.Interest.Percent + " % " + account.Interest.Unit;
             lbl_toStartDate.Text = account.StartDate.ToString();
             lbl_toEndDate.Text = account.EndDate.ToString();
         }
@@ -211,14 +212,14 @@ namespace TransactionApp
         {
             LoanAccount tmp=account as LoanAccount;
             
-            lbl_toId.Text = tmp.Id.ToString();
-            lbl_toNumber.Text = tmp.Number;
-            lbl_toCurrency.Text = tmp.Currency;
-            lbl_toBalance.Text = tmp.LoanBalance.Amount.ToString() + " " + tmp.LoanBalance.Currency.ToString();
-            lbl_toPeriod.Text = tmp.Period.Period + " " + tmp.Period.Unit;
-            lbl_toInterest.Text = tmp.Interest.Percent + " " + tmp.Interest.Unit;
-            lbl_toStartDate.Text = tmp.StartDate.ToString();
-            lbl_toEndDate.Text = tmp.EndDate.ToString();
+            lbl_LoanId.Text = tmp.Id.ToString();
+            lbl_LoanNumber.Text = tmp.Number;
+            lbl_LoanCurrency.Text = tmp.Currency;
+            lbl_LoanBalance.Text = tmp.LoanBalance.Amount.ToString() + " " + tmp.LoanBalance.Currency.ToString();
+            lbl_LoanTimePeriod.Text = tmp.Period.Period + " " + tmp.Period.Unit;
+            lbl_LoanInterestRate.Text = tmp.Interest.Percent + " % " + tmp.Interest.Unit;
+            lbl_LoanStartDate.Text = tmp.StartDate.ToString();
+            lbl_LoanEndDate.Text = tmp.EndDate.ToString();
         }
 
         private ILoanAccount createLoanAccount()
@@ -273,6 +274,79 @@ namespace TransactionApp
 
         }
 
+
+        #endregion
+
+        #region Thrith Part / Group Transactions
+        private void btnMakeGroupTransaction_Click(object sender, EventArgs e)
+        {
+            IAccount[] acounts = new IAccount[2];
+
+            IDepositAccount depositAccount = createDepositAccount();
+            ILoanAccount loanAccount = createLoanAccount();
+
+            acounts[0] = depositAccount;
+            acounts[1] = loanAccount;
+
+            ITransactionProcessor transactionProccesor = TransactionProcessor.GetTransactionProcessor();
+
+            CurrencyAmount currencyAmount = new CurrencyAmount();
+            currencyAmount.Amount = 20000;
+            currencyAmount.Currency = "MKD";
+
+
+            TransactionStatus status = transactionProccesor.ProcessGroupTransaction(TransactionType.Debit, currencyAmount, acounts);
+
+
+            if (status.Equals(TransactionStatus.Completed))
+            {
+                lblTransactionStatus.Text = "Transaction Completed";
+            }
+            else
+            {
+                lblTransactionStatus.Text = "Transaction Failed";
+            }
+
+            //populateDepositAccount(depositAccount);
+            //populateLoanAccount(loanAccount);
+            //lblNumberTransactions.Text ="Number of transactions: " + transactionProccesor.TransactionCount;
+            DisplayLastTransactionDetails();
+        }
+
+
+        private void DisplayLastTransactionDetails()
+        {
+            TransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
+
+            TransactionLogEntry tmp = transactionProcessor.LastTransaction;
+
+            //TransactionLogEntry tmp = transactionProcessor[transactionProcessor.TransactionCount - 1];
+
+
+            lbl_LogTransactionType.Text = tmp.TransactionType.ToString();
+            lbl_LogAmount.Text = tmp.Amount.Amount.ToString();
+            lbl_LogCurrency.Text = tmp.Amount.Currency;
+            lbl_LogTransactionStatus.Text = tmp.Status.ToString();
+
+            foreach (IAccount account in tmp.Accounts)
+            {
+                if (account is ITransactionAccount)
+                {
+                    populateTransactionAccount(account as ITransactionAccount);
+                }
+                else if (account is ILoanAccount)
+                {
+                    populateLoanAccount(account as ILoanAccount);
+                }
+                else if(account is IDepositAccount){
+                    populateDepositAccount(account as IDepositAccount);
+                }
+                
+            }
+
+
+            lblNumberTransactions.Text = "Number of transactions: " + transactionProcessor.TransactionCount.ToString();
+        }
 
         #endregion
     }
