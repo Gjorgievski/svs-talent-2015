@@ -13,18 +13,38 @@ namespace BankClasses.Interfaces
     /// </summary>
     public interface IAccount
     {
-        /// <summary>Property for account id</summary> 
+        /// <summary>
+        /// Property for account id
+        /// </summary> 
          long Id{ get;}
-         /// <summary>Property for account number</summary> 
+         /// <summary>
+         /// Property for account number
+         /// </summary> 
          string Number { get; }
-         /// <summary>Property for account currency</summary> 
+         /// <summary>
+         /// Property for account currency
+         /// </summary> 
          string Currency { get; }
-         /// <summary>Property for account balance</summary> 
+         /// <summary>
+         /// Property for account balance
+         /// </summary> 
          CurrencyAmount Balance { get; }
 
-         /// <summary>Method for debit transaction</summary> 
+       
+        /// <summary>
+        /// Event for balance change
+        /// </summary>
+        event BalanceChanged OnBalanceChanged;
+
+
+         /// <summary>
+         /// Method for debit transaction
+         /// </summary> 
          TransactionStatus DebitAmmout(CurrencyAmount amount);
-         /// <summary>Method for credit transaction</summary> 
+         
+        /// <summary>
+         /// Method for credit transaction
+         /// </summary> 
          TransactionStatus CreditAmmout(CurrencyAmount amount);
 
     }

@@ -33,8 +33,14 @@ namespace BankClasses.Interfaces
         /// <returns>transaction log</returns>
         TransactionLogEntry this[int index] { get; }
 
+        /// <summary>
+        /// Delegate property for external log
+        /// </summary>
+        TransactionLogger ExternalLogger { get; set; }
 
-        /// <summary>Method for processing transaction</summary> 
+        /// <summary>
+        /// Method for processing transaction
+        /// </summary> 
         TransactionStatus ProcessTransaction(TransactionType transactionType,CurrencyAmount currencyAmount,IAccount accountFrom,IAccount accountTo);
 
 
@@ -46,5 +52,13 @@ namespace BankClasses.Interfaces
         /// <param name="accounts">list of accounts</param>
         /// <returns></returns>
         TransactionStatus ProcessGroupTransaction(TransactionType transactionType, CurrencyAmount amount, IAccount[] accounts);
+
+        /// <summary>
+        /// Method for process charge fee
+        /// </summary>
+        /// <param name="amount">amount</param>
+        /// <param name="accounts">array of accounts</param>
+        /// <returns>transaction status</returns>
+        TransactionStatus ChargeProcessingFee(CurrencyAmount amount, IEnumerable<IAccount> accounts);
     }
 }

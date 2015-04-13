@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace BankClasses.Accounts
 {
+     [AccountMetadata(AccountDescription = "Class for Deposit Accounts", AccountLimitations = "No Limitations")]
     /// <summary>
     /// Class that represent Deposit Account
     /// </summary>
@@ -16,50 +17,70 @@ namespace BankClasses.Accounts
     {
 
     #region Private Fields
-        /// <summary>Private field for time period</summary>
+        /// <summary>
+        /// Private field for time period
+        /// </summary>
         private TimePeriod period;
-        /// <summary>Private field for interest rate</summary>
+        /// <summary>
+        /// Private field for interest rate
+        /// </summary>
         private InterestRate interest;
-        /// <summary>Private field for starting date</summary>
+        /// <summary>
+        /// Private field for starting date
+        /// </summary>
         private DateTime startDate;
-        /// <summary>Private field for ending date</summary>
+        /// <summary>
+        /// Private field for ending date
+        /// </summary>
         private DateTime endDate;
-        /// <summary>Private field for transaction account</summary>
+        /// <summary>
+        /// Private field for transaction account
+        /// </summary>
         private ITransactionAccount transactionAccount;
 
 #endregion
         
 
     #region Public Property
-        /// <summary>Public property for private field period</summary>
+        /// <summary>
+        /// Public property for private field period
+        /// </summary>
         public TimePeriod Period
         {
             get { return period; }
             private set { period = value; }
         }
 
-        /// <summary>Public property for private field interest</summary>
+        /// <summary>
+        /// Public property for private field interest
+        /// </summary>
         public InterestRate Interest
         {
             get { return interest; }
             private set { interest = value; }
         }
 
-        /// <summary>Public property for private field startdate</summary>
+        /// <summary>
+        /// Public property for private field startdate
+        /// </summary>
         public DateTime StartDate
         {
             get { return startDate; }
             private set { startDate = value; }
         }
 
-        /// <summary>Public property for private field endDate</summary>
+        /// <summary>
+        /// Public property for private field endDate
+        /// </summary>
         public DateTime EndDate
         {
             get { return endDate; }
             private set { endDate = value; }
         }
 
-        /// <summary>Public property for private field transactionAccount</summary>
+        /// <summary>
+        /// Public property for private field transactionAccount
+        /// </summary>
         public ITransactionAccount TransactionAccount
         {
             get { return transactionAccount; }
@@ -90,6 +111,10 @@ namespace BankClasses.Accounts
         }
 
 
+         /// <summary>
+         /// Public method for generating account number
+         /// </summary>
+         /// <returns>account number</returns>
         protected override string GenerateAccountNumber()
         {
             string result = "";

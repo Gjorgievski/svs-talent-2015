@@ -1,4 +1,5 @@
-﻿using BankClasses.Common.Enumeration;
+﻿using BankClasses.Common;
+using BankClasses.Common.Enumeration;
 using BankClasses.Common.Structure;
 using BankClasses.Helpers;
 using BankClasses.Interfaces;
@@ -18,45 +19,73 @@ namespace BankClasses.Accounts
 
     #region Private Fields
 
-        /// <summary>Private field for account id</summary>
+        /// <summary>
+        /// Private field for account id
+        /// </summary>
         private long id;
-        /// <summary>Private field for account number</summary>
+        /// <summary>
+        /// Private field for account number
+        /// </summary>
         private string number;
-        /// <summary>Private field for account currency</summary>
+        /// <summary>
+        /// Private field for account currency
+        /// </summary>
         private string currency;
-        /// <summary>Private field for account balance</summary>
+        /// <summary>
+        /// Private field for account balance
+        /// </summary>
         private CurrencyAmount balance;
         
 #endregion
 
     #region Public Properties
 
-        /// <summary>Public property for private field id</summary>
+        /// <summary>
+        /// Public property for private field id
+        /// </summary>
         public long Id
         {
             get { return id; }
             private set { id = value; }
         }
 
-        /// <summary>Public property for private field nubber</summary>
+        [FormatRestriction(FormatString = "XXXX-XXXX-XXXX-XXXX",MaxLength=16)]
+        /// <summary>
+        /// Public property for private field nubber
+        /// </summary>
         public string Number
         {
             get { return number; }
             private set { number = value; }
         }
 
-        /// <summary>Public property for private field currency </summary>
+        /// <summary>
+        /// Public property for private field currency 
+        /// </summary>
         public string Currency
         {
             get { return currency; }
             private set { currency = value; }
         }
 
-        /// <summary>Public  property for private field balance </summary>
+        /// <summary>
+        /// Public  property for private field balance 
+        /// </summary>
         public CurrencyAmount Balance
         {
             get { return balance; }
-            private set { balance = value; }
+            private set 
+            {
+                decimal oldAmount = balance.Amount;
+
+                balance = value;
+
+                if (oldAmount != balance.Amount)
+                {
+                    if(OnBalanceChanged != null)
+                        OnBalanceChanged(this, new BalanceChangedEventArguments(this,balance));
+                }
+            }
         }
 
 #endregion
@@ -107,6 +136,14 @@ namespace BankClasses.Accounts
         /// <returns>the success of the transaction</returns>
         public virtual TransactionStatus DebitAmmout(CurrencyAmount amount)
         {
+            if (checkCurrency(this.Balance, amount) == TransactionStatus.Failed)
+            {
+                string res=string.Format("Uncopatible currency: {0} - {1}",this.Balance.Currency,amount.Currency);
+
+                throw new CurrencyMismatchException(res);
+            }
+
+
             if ((amount.Amount < 0) || (Balance.Amount - amount.Amount < 0))
             {
                 return TransactionStatus.Failed;
@@ -133,6 +170,14 @@ namespace BankClasses.Accounts
         /// <returns>the success of the transaction</returns>
         public virtual TransactionStatus CreditAmmout(CurrencyAmount amount)
         {
+            if (checkCurrency(this.Balance, amount) == TransactionStatus.Failed)
+            {
+                string res = string.Format("Uncopatible currency: {0} - {1}", this.Balance.Currency, amount.Currency);
+
+                throw new CurrencyMismatchException(res);
+            }
+
+
             if (amount.Amount < 0)
             {
                 return TransactionStatus.Failed;
@@ -151,7 +196,10 @@ namespace BankClasses.Accounts
             }
         }
 
-
+        /// <summary>
+        /// Abstact method for generating account number
+        /// </summary>
+        /// <returns>account number</returns>
         protected abstract string GenerateAccountNumber(); 
 
 #endregion
@@ -180,5 +228,9 @@ namespace BankClasses.Accounts
 
 #endregion
 
+        /// <summary>
+        /// Event for balance change
+        /// </summary>
+        public event BalanceChanged OnBalanceChanged;
     }
 }

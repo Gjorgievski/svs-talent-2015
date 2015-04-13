@@ -1,4 +1,6 @@
 ﻿using BankClasses.Accounts;
+using BankClasses.Common.Enumeration;
+using BankClasses.Common.Structure;
 using BankClasses.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -82,5 +84,34 @@ namespace BankClasses.Helpers
 
         }
 
+        /// <summary>
+        /// Method for printing in console when amount of transaction exceed 20000MKD
+        /// </summary>
+        /// <param name="account">acount</param>
+        /// <param name="transactionType">transaction type</param>
+        /// <param name="amount">amount</param>
+        public static void LogTransaction(IAccount account, TransactionType transactionType, CurrencyAmount amount)
+        {
+            if (amount.Amount > 20000 && amount.Currency.Equals("MKD"))
+            {
+                string result = string.Format("*LOG* Account Number:{0} | Transaction Type:{1} | Amount:{2} | Currency:{3}", account.Number, transactionType, amount.Amount, amount.Currency);
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
+        /// Method which notificate national bank(print in coslole) when amount of transaction exceed 25000MKD
+        /// </summary>
+        /// <param name="account">acount</param>
+        /// <param name="transactionType">transaction type</param>
+        /// <param name="amount">amount</param>
+        public static void NotifyNationalBank(IAccount account, TransactionType transactionType, CurrencyAmount amount)
+        {
+            if (amount.Amount > 25000 && amount.Currency.Equals("MKD"))
+            {
+                string result = string.Format("*NOTIFICATE NATIONAL BANK*  Account Number:{0} | Transaction Type:{1} | Amount:{2} | Currency:{3}", account.Number, transactionType, amount.Amount, amount.Currency);
+                Console.WriteLine(result);
+            }
+        }
     }
 }

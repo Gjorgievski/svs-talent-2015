@@ -11,10 +11,14 @@ namespace BankClasses.Common.Structure
     /// </summary>
     public struct CurrencyAmount
     {
-        /// <summary>Keep ammount</summary>
+        /// <summary>
+        /// Keep ammount
+        /// </summary>
         public decimal Amount { get; set; }
 
-        /// <summary>Keep Currency</summary>
+        /// <summary>
+        /// Keep Currency
+        /// </summary>
         public string Currency { get; set; }
     }
 }

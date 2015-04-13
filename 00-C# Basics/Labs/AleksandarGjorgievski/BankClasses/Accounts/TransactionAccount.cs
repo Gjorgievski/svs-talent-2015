@@ -9,16 +9,21 @@ using System.Threading.Tasks;
 
 namespace BankClasses.Accounts
 {
+    [AccountMetadata(AccountDescription = "Class for Transaction Accounts", AccountLimitations = "No Limitations")]
     /// <summary>
     /// Class that represent Transaciton Account
     /// </summary>
     public class TransactionAccount:Account,ITransactionAccount
     {
-        /// <summary>Private field for amount limit for account</summary>
+        /// <summary>
+        /// Private field for amount limit for account
+        /// </summary>
         private CurrencyAmount limit;
 
 
-        /// <summary>Public property for private field limit</summary>
+        /// <summary>
+        /// Public property for private field limit
+        /// </summary>
         public CurrencyAmount Limit
         {
             get { return limit; }
@@ -41,7 +46,10 @@ namespace BankClasses.Accounts
             this.Limit = tmp;
         }
 
-
+        /// <summary>
+        /// Public Method for generating account number
+        /// </summary>
+        /// <returns>account number</returns>
         protected override string GenerateAccountNumber()
         {
             string result = "";

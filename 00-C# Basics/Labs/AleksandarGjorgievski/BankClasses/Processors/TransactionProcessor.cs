@@ -1,5 +1,6 @@
 ﻿using BankClasses.Common.Enumeration;
 using BankClasses.Common.Structure;
+using BankClasses.Helpers;
 using BankClasses.Interfaces;
 using System;
 using System.Collections;
@@ -25,12 +26,15 @@ namespace BankClasses.Processors
         /// </summary>
         private IList<TransactionLogEntry> transactionLog;
 
+
         /// <summary>
         /// Parametarless constructor for Transaction processor
         /// </summary>
         private TransactionProcessor()
         {
             //IList transactionLog = new IList<TransactionLogEntry>();
+            ExternalLogger += AccountHelper.LogTransaction;
+            ExternalLogger += AccountHelper.NotifyNationalBank;
         }
 
         /// <summary>
@@ -51,7 +55,9 @@ namespace BankClasses.Processors
                 case TransactionType.Credit:
                     {
                         TransactionStatus tsFrom = accountFrom.DebitAmmout(currencyAmount);
+                        CallExternalLogger(accountFrom, transactionType, currencyAmount);
                         TransactionStatus tsTo = accountTo.CreditAmmout(currencyAmount);
+                        CallExternalLogger(accountTo, transactionType, currencyAmount);
 
                         if (tsFrom.Equals(TransactionStatus.Completed) && tsTo.Equals(TransactionStatus.Completed))
                         {
@@ -66,11 +72,13 @@ namespace BankClasses.Processors
                 case TransactionType.Debit:
                     {
                         ts = accountFrom.DebitAmmout(currencyAmount);
+                        CallExternalLogger(accountFrom, transactionType, currencyAmount);
                         break;
                     }
                 case TransactionType.Transfer:
                     {
                         ts = accountFrom.CreditAmmout(currencyAmount);
+                        CallExternalLogger(accountFrom, transactionType, currencyAmount);
                         break;
                     }
                 default:
@@ -104,6 +112,7 @@ namespace BankClasses.Processors
                 foreach (IAccount account in accounts)
                 {
                     account.CreditAmmout(amount);
+                    CallExternalLogger(account, transactionType, amount);
                 }
 
                 result = TransactionStatus.Completed;
@@ -113,6 +122,7 @@ namespace BankClasses.Processors
                 foreach (IAccount account in accounts)
                 {
                     account.DebitAmmout(amount);
+                    CallExternalLogger(account, transactionType, amount);
                 }
 
                 result = TransactionStatus.Completed;
@@ -205,6 +215,40 @@ namespace BankClasses.Processors
                 instance.transactionLog = new List<TransactionLogEntry>();
             }
             return instance;
+        }
+
+        /// <summary>
+        /// Delegate property for transaction logger
+        /// </summary>
+        public TransactionLogger ExternalLogger
+        {
+            get;
+
+            set;
+
+        }
+
+
+        /// <summary>
+        /// Private method for calling external loger delegate property
+        /// </summary>
+        /// <param name="account">account</param>
+        /// <param name="transactionType">transaction type</param>
+        /// <param name="amount">amount</param>
+        private void CallExternalLogger(IAccount account, TransactionType transactionType, CurrencyAmount amount)
+        {
+            ExternalLogger(account,transactionType,amount);
+        }
+
+        /// <summary>
+        /// Method for process charge fee
+        /// </summary>
+        /// <param name="amount">amount</param>
+        /// <param name="accounts">array of accounts</param>
+        /// <returns>transaction status</returns>
+        public TransactionStatus ChargeProcessingFee(CurrencyAmount amount, IEnumerable<IAccount> accounts)
+        {
+            throw new NotImplementedException();
         }
     }
 }

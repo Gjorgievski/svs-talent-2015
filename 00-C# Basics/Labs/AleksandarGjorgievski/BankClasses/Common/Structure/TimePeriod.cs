@@ -12,10 +12,14 @@ namespace BankClasses.Common.Structure
     /// </summary>
     public struct TimePeriod
     {
-        /// <summary>Keep period</summary>
+        /// <summary>
+        /// Keep period
+        /// </summary>
         public int Period { get; set; }
 
-        /// <summary>Keep for which unit of time is the declared period</summary>
+        /// <summary>
+        /// Keep for which unit of time is the declared period
+        /// </summary>
         public UnitOfTime Unit { get; set; }
     }
 }

@@ -12,10 +12,14 @@ namespace BankClasses.Common.Structure
     /// </summary>
     public struct InterestRate
     {
-        /// <summary>Keep percent of interest rate</summary>
+        /// <summary>
+        /// Keep percent of interest rate
+        /// </summary>
         public decimal Percent { get; set; }
 
-        /// <summary>Keep for what period applies the percentаге</summary>
+        /// <summary>
+        /// Keep for what period applies the percentаге
+        /// </summary>
         public UnitOfTime Unit { get; set; }
     }
 }

@@ -12,7 +12,9 @@ namespace BankClasses.Interfaces
     /// </summary>
     public interface ITransactionAccount:IAccount
     {
-        /// <summary>Property for transaction account limit</summary> 
+        /// <summary>
+        /// Property for transaction account limit
+        /// </summary> 
          CurrencyAmount Limit { get; }
 
     }

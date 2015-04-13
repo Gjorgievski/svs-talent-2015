@@ -13,15 +13,25 @@ namespace BankClasses.Interfaces
     /// </summary>
     public interface IDepositAccount:IAccount
     {
-        /// <summary>Property for time period</summary> 
+        /// <summary>
+        /// Property for time period
+        /// </summary> 
         TimePeriod Period { get; }
-        /// <summary>Property for interest rate</summary> 
+        /// <summary>
+        /// Property for interest rate
+        /// </summary> 
         InterestRate Interest { get; }
-        /// <summary>Property for begining date</summary> 
+        /// <summary>
+        /// Property for begining date
+        /// </summary> 
         DateTime StartDate { get; }
-        /// <summary>Property for ending date</summary> 
+        /// <summary>
+        /// Property for ending date
+        /// </summary> 
         DateTime EndDate { get; }
-        /// <summary>Property for transaction account</summary> 
+        /// <summary>
+        /// Property for transaction account
+        /// </summary> 
         ITransactionAccount TransactionAccount { get; }
     }
 }

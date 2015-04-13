@@ -10,16 +10,21 @@ using System.Threading.Tasks;
 
 namespace BankClasses.Accounts
 {
+    [AccountMetadata(AccountDescription="Class for Loan Accounts",AccountLimitations="Sealed Class")]
     /// <summary>
     /// Class that represent loan account
     /// </summary>
     public sealed class LoanAccount:DepositAccount,ILoanAccount
     {
 
-        /// <summary>Private field for loan balance</summary>
+        /// <summary>
+        /// Private field for loan balance
+        /// </summary>
         private CurrencyAmount loanBalance;
 
-        /// <summary>Propety for loan balance</summary>
+        /// <summary>
+        /// Propety for loan balance
+        /// </summary>
         public CurrencyAmount LoanBalance
         {
             get { return loanBalance; }
@@ -102,6 +107,10 @@ namespace BankClasses.Accounts
         }
 
 
+        /// <summary>
+        /// Public method for generating account number
+        /// </summary>
+        /// <returns>account number</returns>
         protected override string GenerateAccountNumber()
         {
             string result = "";
